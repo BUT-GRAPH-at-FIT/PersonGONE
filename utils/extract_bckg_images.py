@@ -15,10 +15,8 @@ counter = 0
 
 ################################################################################
 
-# path_1 = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track1_MTMT_Tracking'
 path_1 = args.t_1_path
 
-# types = ['test', 'train', 'validation']
 types = ['train', 'validation']
 
 for t in types:
@@ -44,7 +42,6 @@ for t in types:
 
 ################################################################################
 
-# path_3 = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track3_ActionRecognition'
 path_3 = args.t_3_path
 
 types = ['A1', 'A2']

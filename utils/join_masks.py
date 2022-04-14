@@ -4,7 +4,6 @@ import numpy as np
 from tqdm import tqdm
 import sys
 
-# variants = ['DetectoRS', 'HTC', 'PointRend', 'SOLO', 'YOLACT']
 variants = ['DetectoRS', 'HTC', 'PointRend', 'YOLACT']
 out_dir = 'all'
 

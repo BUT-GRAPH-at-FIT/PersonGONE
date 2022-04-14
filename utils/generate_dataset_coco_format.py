@@ -17,13 +17,6 @@ parser.add_argument('--count', type=int, default=100000, help='Count of generate
 
 args = parser.parse_args()
 
-# path = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track4_AutoRetail/Train_SynData'
-# # store_path = '/mnt/data/AIC2022/Track4/COCO_FORMAT_TEST/train'
-# store_path = '/mnt/data/AIC2022/Track4/COCO_FORMAT_TEST/validation'
-# # annotation_path = '/mnt/data/AIC2022/Track4/COCO_FORMAT_TEST/annotations/train.json'
-# annotation_path = '/mnt/data/AIC2022/Track4/COCO_FORMAT_TEST/annotations/validation.json'
-
-
 bckg_images = os.listdir(args.bckg_images)
 
 images = [os.listdir(os.path.join(args.t_4_train_path, 'syn_image_train', '{:05d}'.format(label))) for label in list(range(1,117))]
@@ -49,7 +42,6 @@ annotations = {
 
 annot_id = 0
 
-# for pos in tqdm(range(100000)):
 for pos in tqdm(range(args.count)):
 
     labels = np.random.randint(1, 117, np.random.randint(1,5))

@@ -4,7 +4,6 @@ from tqdm import tqdm
 import sys
 import os
 
-# path = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track4_AutoRetail/TestA/inpainting_9_3/testA_5/testA_5_inpainting.mp4'
 path = sys.argv[1]
 store_path = sys.argv[2]
 

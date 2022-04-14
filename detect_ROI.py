@@ -14,12 +14,12 @@ vids = load_ids_and_paths(args.video_id)
 
 ################################################################################
 print('Going to extract mean image for single scenes!')
-# for vid in vids:
-#     print('Extracting mean background model for scene:', vid['name'])
-#     call(['python', 'utils/bckg_subtraction.py',
-#           os.path.join(inpainting_path, vid['name'], vid['name']+'.mp4'),
-#           os.path.join(mean_scenes_path, vid['name']+'.jpg')]
-#           )
+for vid in vids:
+    print('Extracting mean background model for scene:', vid['name'])
+    call(['python', 'utils/bckg_subtraction.py',
+          os.path.join(inpainting_path, vid['name'], vid['name']+'.mp4'),
+          os.path.join(mean_scenes_path, vid['name']+'.jpg')]
+          )
 ################################################################################
 
 

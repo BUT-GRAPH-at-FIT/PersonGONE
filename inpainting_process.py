@@ -18,17 +18,17 @@ variants = ['DetectoRS', 'HTC', 'PointRend', 'YOLACT']
 ################################################################################
 # Proceede person instance segmentaion
 os.chdir('instance_segmentation')
-# os.environ['LD_LIBRARY_PATH'] = args.cuda_path
-# os.environ['PYTHONPATH'] = os.getcwd()
-# print('Going to generate person masks!')
-# for v in variants:
-#     for vid in vids:
-#         print('Going to generate person masks for video: {:s} and detector variant {:s}'.format(vid['vid_path'], v))
-#         call(['python', 'demo/extract_person.py',
-#               vid['vid_path'],
-#               v,
-#               masks_path
-#               ])
+os.environ['LD_LIBRARY_PATH'] = args.cuda_path
+os.environ['PYTHONPATH'] = os.getcwd()
+print('Going to generate person masks!')
+for v in variants:
+    for vid in vids:
+        print('Going to generate person masks for video: {:s} and detector variant {:s}'.format(vid['vid_path'], v))
+        call(['python', 'demo/extract_person.py',
+              vid['vid_path'],
+              v,
+              masks_path
+              ])
 ################################################################################
 
 
@@ -36,30 +36,30 @@ os.chdir('instance_segmentation')
 # Merge all masks to one for each frame
 print('Going to join person masks!')
 os.chdir('..')
-# call(['python', 'utils/join_masks.py',
-#       masks_path])
+call(['python', 'utils/join_masks.py',
+      masks_path])
 ################################################################################
 
 
 ################################################################################
 print('Going to extract frames!')
-# for vid in vids:
-#     call(['python', 'utils/extract_frames.py',
-#           vid['vid_path'],
-#           os.path.join(frames_path, vid['name'])
-#           ])
+for vid in vids:
+    call(['python', 'utils/extract_frames.py',
+          vid['vid_path'],
+          os.path.join(frames_path, vid['name'])
+          ])
 ################################################################################
 
 
 ################################################################################
 print('Going to extract masks and frames to LaMa input!')
-# for vid in vids:
-#     call(['python', 'utils/export_to_lama.py',
-#           frames_path,
-#           os.path.join(masks_path, 'all'),
-#           lama_path,
-#           vid['name']
-#           ])
+for vid in vids:
+    call(['python', 'utils/export_to_lama.py',
+          frames_path,
+          os.path.join(masks_path, 'all'),
+          lama_path,
+          vid['name']
+          ])
 ################################################################################
 
 
@@ -67,12 +67,12 @@ print('Going to extract masks and frames to LaMa input!')
 print('Going to proceede image inpanting by LaMa method!')
 os.chdir('image_inpainting')
 os.environ['PYTHONPATH'] = os.getcwd()
-# for vid in vids:
-#     call(['python', 'bin/predict.py',
-#           'model.path='+os.getcwd()+'/big-lama',
-#           'indir='+os.path.join(lama_path, vid['name']),
-#           'outdir='+os.path.join(inpainting_path, vid['name'])
-#           ])
+for vid in vids:
+    call(['python', 'bin/predict.py',
+          'model.path='+os.getcwd()+'/big-lama',
+          'indir='+os.path.join(lama_path, vid['name']),
+          'outdir='+os.path.join(inpainting_path, vid['name'])
+          ])
 ################################################################################
 
 

@@ -14,18 +14,18 @@ vids = load_ids_and_paths(args.video_id)
 
 ################################################################################
 os.chdir('detector_and_tracker')
-# os.environ['LD_LIBRARY_PATH'] = args.cuda_path
-# os.environ['PYTHONPATH'] = os.getcwd()
-# for vid in vids:
-#     call(['python', 'tools/detector_with_tracker.py',
-#            '-expn', 'yolox_l',
-#            '--path', os.path.join(inpainting_path, vid['name'], vid['name']+'.mp4'),
-#            '--roi_path', os.path.join(rois_path, vid['name']+'.json'),
-#            '--tracker', 'BYTE',
-#            '--tsize', str(800),
-#            '-f', 'exps/aic_yolox_l.py',
-#            '-c', 'checkpoints/yolox_l/best_ckpt.pth'
-#            ])
+os.environ['LD_LIBRARY_PATH'] = args.cuda_path
+os.environ['PYTHONPATH'] = os.getcwd()
+for vid in vids:
+    call(['python', 'tools/detector_with_tracker.py',
+           '-expn', 'yolox_l',
+           '--path', os.path.join(inpainting_path, vid['name'], vid['name']+'.mp4'),
+           '--roi_path', os.path.join(rois_path, vid['name']+'.json'),
+           '--tracker', 'BYTE',
+           '--tsize', str(800),
+           '-f', 'exps/aic_yolox_l.py',
+           '-c', 'checkpoints/yolox_l/best_ckpt.pth'
+           ])
 ################################################################################
 
 ################################################################################

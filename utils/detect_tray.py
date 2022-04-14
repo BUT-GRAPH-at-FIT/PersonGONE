@@ -10,7 +10,6 @@ parser.add_argument('--out_path', type=str, default=None, help='Path to output J
 parser.add_argument('--roi_seed', type=int, nargs=2, default=None, help='Seed to found ROI')
 args = parser.parse_args()
 
-# path = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track4_AutoRetail/TestA/frames/testA_2/000000.jpg'
 path = args.mean_path
 store_path = args.out_path
 img = cv2.imread(path)

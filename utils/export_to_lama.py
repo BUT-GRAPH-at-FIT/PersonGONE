@@ -3,10 +3,6 @@ import os
 from tqdm import tqdm
 import sys
 
-# frames_path = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track4_AutoRetail/TestA/frames'
-# masks_path = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track4_AutoRetail/TestA/person_masks/all'
-# output_path = '/mnt/matylda0/ispanhel/Datasets/AIC2022/AIC22_Track4_AutoRetail/TestA/lama_input'
-
 frames_path = sys.argv[1]
 masks_path = sys.argv[2]
 output_path = sys.argv[3]
