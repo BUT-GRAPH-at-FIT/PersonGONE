@@ -5,7 +5,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser('ROI detection process!')
-parser.add_argument('--video_id', type=str, default=None, help='Absolute path file with video id and paths')
+parser.add_argument('--video_id', type=str, default=None, required=True, help='Absolute path file with video id and paths')
 parser.add_argument('--roi_seed', type=int, nargs=2, default=None, help='Seed to found ROI')
 parser.add_argument('--cuda_path', default='/usr/local/cuda-11.3/lib64', type=str, help='device for training')
 args = parser.parse_args()

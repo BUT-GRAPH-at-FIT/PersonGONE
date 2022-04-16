@@ -24,7 +24,7 @@ else:
 
 ################################################################################
 print('Downloading instance segmentation models weights!')
-instance_path = os.path.join('instance_segmentaion', 'checkpoints')
+instance_path = os.path.join('instance_segmentation', 'checkpoints')
 seg_path = os.path.join(instance_path, 'detectors_htc_r101_20e_coco_20210419_203638-348d533b.pth')
 if os.path.exists(seg_path):
     print('DetectoRS already downloaded - skipping.')

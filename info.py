@@ -9,6 +9,8 @@ def load_ids_and_paths(file_path):
     return vids
 
 base_path = './data'
+abs_data_path = os.path.abspath(base_path)
+dataset_path = os.path.join(abs_data_path, 'dataset')
 masks_path = os.path.join(os.path.abspath(base_path), 'person_masks')
 frames_path = os.path.join(os.path.abspath(base_path), 'frames')
 lama_path = os.path.join(os.path.abspath(base_path), 'lama_input')

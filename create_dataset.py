@@ -1,3 +1,4 @@
+from info import *
 import argparse
 import os
 from subprocess import call
@@ -10,9 +11,6 @@ parser.add_argument("--t_4_path", type=str, default=None, help="Path to root of 
 
 args = parser.parse_args()
 
-data_path = './data'
-abs_data_path = os.path.abspath(data_path)
-dataset_path = os.path.join(abs_data_path, 'dataset')
 
 os.makedirs(dataset_path, exist_ok=True)
 
@@ -29,11 +27,11 @@ os.makedirs(os.path.join(dataset_path, 'annotations'), exist_ok=True)
 os.makedirs(os.path.join(dataset_path, 'train'), exist_ok=True)
 call(['python', 'utils/generate_dataset_coco_format.py',
       '--bckg_images', os.path.join(abs_data_path, 'bckg_images'),
-      '--t_4_train_path', os.path.join(args.t_4_path, 'Train_SynData'),
+      '--t_4_train_path', args.t_4_path,
       '--store_path', os.path.join(dataset_path, 'train'),
       '--classes_path', os.path.join(abs_data_path, 'classes.json'),
       '--annotation_path', os.path.join(dataset_path, 'annotations', 'train.json'),
-      '--count', '100'])
+      '--count', '1000'])
 print('Train dataset DONE! Stored in:', os.path.join(dataset_path, 'train'))
 
 
@@ -41,9 +39,9 @@ print('Creating validation dataset in COCO format')
 os.makedirs(os.path.join(dataset_path, 'validation'), exist_ok=True)
 call(['python', 'utils/generate_dataset_coco_format.py',
       '--bckg_images', os.path.join(abs_data_path, 'bckg_images'),
-      '--t_4_train_path', os.path.join(args.t_4_path, 'Train_SynData'),
+      '--t_4_train_path', args.t_4_path,
       '--store_path', os.path.join(dataset_path, 'validation'),
       '--classes_path', os.path.join(abs_data_path, 'classes.json'),
       '--annotation_path', os.path.join(dataset_path, 'annotations', 'validation.json'),
-      '--count', '20'])
+      '--count', '200'])
 print('Validation dataset DONE! Stored in:', os.path.join(dataset_path, 'validation'))

@@ -46,6 +46,7 @@ def make_parser():
         "--resume", default=False, action="store_true", help="resume training"
     )
     parser.add_argument("-c", "--ckpt", default=None, type=str, help="checkpoint file")
+    parser.add_argument("--epochs", default=None, type=int, help="count of training epochs")
     parser.add_argument(
         "-e",
         "--start_epoch",
@@ -121,8 +122,11 @@ def main(exp, args):
 if __name__ == "__main__":
     args = make_parser().parse_args()
     exp = get_exp(args.exp_file, args.name)
+    exp.max_epoch = args.epochs
     exp.merge(args.opts)
     exp.data_dir = args.dataset_path
+    exp.max_epoch = args.epochs
+    exp.batch_size = args.batch_size
 
     if not args.experiment_name:
         args.experiment_name = exp.exp_name
