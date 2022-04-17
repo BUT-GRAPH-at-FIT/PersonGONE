@@ -34,60 +34,28 @@ pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0+cu1
 pip install mmcv-full==1.4.6 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
 pip install -r requirements.txt
 ```
-## Prepare _AI City Challenge_ dataset
+5. Set environment variables
+```bash
+export PERSON_GONE_DIR=$(pwd)
+```
 
-#### Without training
+## Reproduce results with pre-trained detector (prefered)
+
+### Prepare testing dataset
 If you do not want to train detector, only ``AIC22_Track4_TestA.zip`` (or TestB) is sufficient.
 
-#### With training <a name="training-ref"></a>
-If you want to train detector prepare data at least from Track1, Track3, and Track4 (_AI City Challenge 2022_)  
-
-<!--Please run ``split_data.sh`` in
-(**TODO**: v kazde slozce? - zkontrolovat)
-> Track4/Train_SynData/segmenation_labels  
-
-and
-
->Track4/Train_SynData/syn_image_train
--->
-
-**Split data**
 ```bash
-cp split_data.sh Track4/Train_SynData/segmentation_labels/split_data.sh
-cd Track4/Train_SynData/segmentation_labels
-bash split_data.sh
-
-cd -
-cp split_data.sh Track4/Train_SynData/syn_image_train/split_data.sh
-cd Track4/Train_SynData/syn_image_train
-bash split_data.sh
+export TRACK_4_DATA_ROOT={/path/to/track_4/root_dir}
 ```
 
-## Results reproduction
+For example: ``export TRACK_4_DATA_ROOT=/mnt/data/AIC22_Track4_TestA/Test_A``
 
-### Download pre-trained model (prefered)
+### Download pre-trained model 
 ```bash
-cd ..
+cd $PERSON_GONE_DIR
 python download_pretrained_models.py --detector
 ```
-
-#### OR
-
-### Train detector (can take many hours/several days)
-1. Download pretrained-model models without detector  
-```bash
-python download_pretrained_models.py
-```
-2. Prepare _AI City Challenge_ dataset as [described](#training-ref)
-3. Create dataset
-```bash
-python create_dataset.py --t_1_path {/path/to/AIC22_Track_1_MTMC_Tracking} --t_3_path {/path/to/AIC22_Track3_ActionRecognition} --t_4_track {/path/to/AIC_Track4/Train_SynData}
-```
-4. Train detector
-```bash
-python train.py  
-```
-Arguments ``--batch_size`` and ``--epochs`` can be set
+Alternatively, you may [train detector at your own](#training-ref)
 
 ### Inpainting process
 Run:
@@ -113,6 +81,43 @@ Parameters ``--tracker`` and ``--img_size`` can be set
 
 ### Hint
 All scripts are set as the result was reported to _AI City Challenge_ and no arguments must be set (only ``--video_id``).
+
+
+
+## Train object detector for store checkout<a name="training-ref"></a>
+
+### Prepare _AI City Challenge_ dataset<a name="prepare-dataset-ref"</a>
+If you want to train detector prepare data at least from Track1, Track3, and Track4 (_AI City Challenge 2022_)  
+
+
+#### Transform data structure - separate data by classes
+```bash
+cd $PERSON_GONE_DIR
+cp split_data.sh Track4/Train_SynData/segmentation_labels/split_data.sh
+cd Track4/Train_SynData/segmentation_labels
+bash split_data.sh
+
+cd $PERSON_GONE_DIR
+cp split_data.sh Track4/Train_SynData/syn_image_train/split_data.sh
+cd Track4/Train_SynData/syn_image_train
+bash split_data.sh
+```
+### Train detector (can take many hours/several days)
+1. Download pretrained-model models without detector  
+```bash
+python download_pretrained_models.py
+```
+2. Prepare _AI City Challenge_ dataset as [described above](#prepare-dataset-ref)
+3. Create dataset
+```bash
+python create_dataset.py --t_1_path {/path/to/AIC22_Track_1_MTMC_Tracking} --t_3_path {/path/to/AIC22_Track3_ActionRecognition} --t_4_track {/path/to/AIC_Track4/Train_SynData}
+```
+4. Train detector
+```bash
+python train_detector.py  
+```
+Arguments ``--batch_size`` and ``--epochs`` can be set. Explicit values are ``batch_size = 16, epochs = 75``.
+
 
 ## Acknowledgements
 * Instance segmentaion: [MMdetection](https://github.com/open-mmlab/mmdetection)
