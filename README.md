@@ -120,7 +120,7 @@ Arguments ``--batch_size`` and ``--epochs`` can be set. Explicit values are ``ba
 
 
 ## Acknowledgements
-* Instance segmentaion: [MMdetection](https://github.com/open-mmlab/mmdetection)
+* Instance segmentation: [MMdetection](https://github.com/open-mmlab/mmdetection)
 * Inpainting: [LaMa](https://github.com/saic-mdal/lama)
 * Detector: [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 * Trackers: [BYTE](https://github.com/ifzhang/ByteTrack), [SORT](https://github.com/abewley/sort)
