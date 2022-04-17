@@ -4,6 +4,7 @@ import argparse
 import zipfile
 import shutil
 
+
 parser = argparse.ArgumentParser('Download pretrained models weights')
 parser.add_argument("--detector", action='store_true')
 args = parser.parse_args()
@@ -14,7 +15,7 @@ lama_path = os.path.join('image_inpainting', 'big-lama')
 if os.path.exists(lama_path):
     print('Already downloaded - skipping.')
 else:
-    os.makedirs(lama_path)
+    os.makedirs(lama_path,exist_ok=True)
     wget.download('https://nextcloud.fit.vutbr.cz/s/55rG5fDDzmnCFPo/download?path=%2F&files=big-lama.zip')
     with zipfile.ZipFile('big-lama.zip', 'r') as zip_ref:
         zip_ref.extractall('image_inpainting')
@@ -25,6 +26,7 @@ else:
 ################################################################################
 print('Downloading instance segmentation models weights!')
 instance_path = os.path.join('instance_segmentation', 'checkpoints')
+os.makedirs(instance_path,exist_ok=True)
 seg_path = os.path.join(instance_path, 'detectors_htc_r101_20e_coco_20210419_203638-348d533b.pth')
 if os.path.exists(seg_path):
     print('DetectoRS already downloaded - skipping.')
@@ -39,6 +41,7 @@ seg_path = os.path.join(instance_path, 'htc_x101_64x4d_fpn_dconv_c3-c5_mstrain_4
 if os.path.exists(seg_path):
     print('HTC already downloaded - skipping.')
 else:
+    os.makedirs(seg_path,exist_ok=True)
     wget.download('https://nextcloud.fit.vutbr.cz/s/55rG5fDDzmnCFPo/download?path=%2F&files=htc_x101_64x4d_fpn_dconv_c3-c5_mstrain_400_1400_16x1_20e_coco_20200312-946fd751.pth')
     shutil.move('htc_x101_64x4d_fpn_dconv_c3-c5_mstrain_400_1400_16x1_20e_coco_20200312-946fd751.pth', seg_path)
     print('\nHTC downloaded!')
@@ -67,10 +70,10 @@ else:
 ################################################################################
 if args.detector:
     det_path = os.path.join('detector_and_tracker', 'checkpoints', 'yolox_l')
-    os.makedirs(det_path, exist_ok=True)
     if os.path.exists(os.path.join(det_path, 'best_ckpt.pth')):
         print('Detector already exists - skipping.')
     else:
+        os.makedirs(det_path, exist_ok=True)
         print('Downloading pretraind YOLOX-L detector weights!')
         wget.download('https://nextcloud.fit.vutbr.cz/s/55rG5fDDzmnCFPo/download?path=%2F&files=best_ckpt.pth')
         shutil.move('best_ckpt.pth', os.path.join(det_path, 'best_ckpt.pth'))
