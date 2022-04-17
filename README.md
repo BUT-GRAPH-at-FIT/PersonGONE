@@ -11,7 +11,7 @@ Paper to [download](https://openaccess.thecvf.com) - **TBD**
 ### Tested environment
 
 * Ubuntu 20.04
-* Pyhton 3.8
+* Python 3.8
 * CUDA 11.3
 * CuDNN 8.2.1
 * PyTorch 1.11
