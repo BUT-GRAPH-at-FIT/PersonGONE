@@ -53,8 +53,12 @@ and
 
 **Split data**
 ```bash
+cp split_data.sh Track4/Train_SynData/segmentation_labels/split_data.sh
 cd Track4/Train_SynData/segmentation_labels
 bash split_data.sh
+
+cd -
+cp split_data.sh Track4/Train_SynData/syn_image_train/split_data.sh
 cd Track4/Train_SynData/syn_image_train
 bash split_data.sh
 ```
