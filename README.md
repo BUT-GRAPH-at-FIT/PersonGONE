@@ -19,15 +19,15 @@ Paper to [download](https://openaccess.thecvf.com) - **TBD**
 
 ## Environment setup
 
-Install CUDA 11.3 and CuDNN
+1. Install CUDA 11.3 and CuDNN
 
-Clone this repo: 
-
+2. Clone this repo: 
 ```bash
 git clone https://github.com/BUT-GRAPH-at-FIT/PersonGONE.git
 ```
+3. Create virtual environment and activate it (optional)
 
-Create virtual environment and install dependencies
+4. Install dependencies
 ```bash
 cd PersonGONE
 pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
@@ -83,7 +83,7 @@ python create_dataset.py --t_1_path {/path/to/AIC22_Track_1_MTMC_Tracking} --t_3
 ```bash
 python train.py  
 ```
-Parameters ``--batch_size`` and ``--epochs`` can be set
+Arguments ``--batch_size`` and ``--epochs`` can be set
 
 ### Inpainting process
 Run:
@@ -96,14 +96,14 @@ python inpainting_process.py --video_id {/path/to/video_id.txt}
 ### Detect ROI
 Run:
 ```bash
-python detect_ROI.py --video_id ``/path/to/video_id.txt``  
+python detect_ROI.py --video_id {/path/to/video_id.txt}
 ```
-Parameter ``--roi_seed`` can be set (two values) - it specifies seed position for ROI detection (white tray) in format ``x,y`` **TBD**
+Arguments ``--roi_seed`` can be set (two values) - it specifies seed position for ROI detection (white tray) in format ``x,y`` **TBD**
 
 ### Detect products and create submission
 Run:
 ```bash
-python detect_and_create_submission.py --video_id ``/path/to/video_id.txt``  
+python detect_and_create_submission.py --video_id {/path/to/video_id.txt}  
 ```
 Parameters ``--tracker`` and ``--img_size`` can be set
 
