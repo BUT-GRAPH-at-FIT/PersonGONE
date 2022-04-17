@@ -59,7 +59,6 @@ cd Track4/Train_SynData/syn_image_train
 bash split_data.sh
 ```
 
-
 ## Results reproduction
 
 ### Download pre-trained model (prefered)
@@ -72,7 +71,9 @@ python download_pretrained_models.py --detector
 
 ### Train detector (can take many hours/several days)
 1. Download pretrained-model models without detector  
-> pyhton download_pretrained_models.py
+```bash
+python download_pretrained_models.py
+```
 2. Prepare _AI City Challenge_ dataset as [described](#training-ref)
 3. Create dataset
 ```bash
