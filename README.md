@@ -60,7 +60,7 @@ Alternatively, you may [train detector at your own](#training-ref)
 ### Inpainting process
 Run:
 ```bash
-python inpainting_process.py --video_id {/path/to/video_id.txt}
+python inpainting_process.py --video_id $TRACK_4_DATA_ROOT/video_id.txt
 ```
 
 ``video_id.txt`` file is available in ``AIC22_Track4_TestA`` and contain video IDs and video file names (in the same directory)
@@ -68,16 +68,16 @@ python inpainting_process.py --video_id {/path/to/video_id.txt}
 ### Detect ROI
 Run:
 ```bash
-python detect_ROI.py --video_id {/path/to/video_id.txt}
+python detect_ROI.py --video_id $TRACK_4_DATA_ROOT/video_id.txt
 ```
-Arguments ``--roi_seed`` can be set (two values) - it specifies seed position for ROI detection (white tray) in format ``x,y`` **TBD**
+Arguments ``--roi_seed`` can be set (two values) - it specifies seed position for ROI detection (white tray) in format ``x,y`` **TBD: Vojta**
 
 ### Detect products and create submission
 Run:
 ```bash
-python detect_and_create_submission.py --video_id {/path/to/video_id.txt}  
+python detect_and_create_submission.py --video_id $TRACK_4_DATA_ROOT/video_id.txt 
 ```
-Parameters ``--tracker`` and ``--img_size`` can be set
+Parameters ``--tracker`` and ``--img_size`` can be set. The values are pre-set to ``tracker = BYTE, img_size = 640``
 
 ### Hint
 All scripts are set as the result was reported to _AI City Challenge_ and no arguments must be set (only ``--video_id``).
@@ -120,7 +120,7 @@ Arguments ``--batch_size`` and ``--epochs`` can be set. Explicit values are ``ba
 
 
 ## Acknowledgements
-* Instance segmentaion: [MMdetection](https://github.com/open-mmlab/mmdetection)
+* Instance segmentation: [MMdetection](https://github.com/open-mmlab/mmdetection)
 * Inpainting: [LaMa](https://github.com/saic-mdal/lama)
 * Detector: [YOLOX](https://github.com/Megvii-BaseDetection/YOLOX)
 * Trackers: [BYTE](https://github.com/ifzhang/ByteTrack), [SORT](https://github.com/abewley/sort)
