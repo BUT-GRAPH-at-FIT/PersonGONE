@@ -70,7 +70,7 @@ Run:
 ```bash
 python detect_ROI.py --video_id $TRACK_4_DATA_ROOT/video_id.txt
 ```
-Arguments ``--roi_seed`` can be set (two values) - it specifies seed position for ROI detection (white tray) in format ``x,y`` **TBD: Vojta**
+Arguments ``--roi_seed`` can be set (two values) - it specifies seed position for ROI detection (white tray) in format ``x y``
 
 ### Detect products and create submission
 Run:
@@ -129,15 +129,16 @@ Arguments ``--batch_size`` and ``--epochs`` can be set. Explicit values are ``ba
 TBD
 ```
 @inproceedings{bartl2022personGone,
-title={PersonGONE: Image Inpainting for Automated Checkout Solution},
-author={Bartl, Vojtěch and Špaňhel, Jakub and Herout, Adam},
-TBD,
-TBD,
-year={2022}
+    title={{PersonGONE}: Image Inpainting for Automated Checkout Solution},
+    author={Bartl, Vojt\v{e}ch and \v{S}pa\v{n}hel, Jakub and Herout, Adam},
+    TBD,
+    TBD,
+    year={2022}
 }
 ```
 
-
+<!-- 
 # TODOs:
 Nastavit spravne velikosti datasetu a epochy tranovani (ted jen na zkousku)  
 Zkontrolovat nazvy a sjednotit nazvy jako _AIC22_Track4_TestA, AIC22_Track_1_MTMC_Tracking_ s oficialne stazenymi soubory
+-->

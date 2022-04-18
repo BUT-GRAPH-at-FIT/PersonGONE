@@ -31,7 +31,7 @@ call(['python', 'utils/generate_dataset_coco_format.py',
       '--store_path', os.path.join(dataset_path, 'train'),
       '--classes_path', os.path.join(abs_data_path, 'classes.json'),
       '--annotation_path', os.path.join(dataset_path, 'annotations', 'train.json'),
-      '--count', '1000'])
+      '--count', '100000'])
 print('Train dataset DONE! Stored in:', os.path.join(dataset_path, 'train'))
 
 
@@ -43,5 +43,5 @@ call(['python', 'utils/generate_dataset_coco_format.py',
       '--store_path', os.path.join(dataset_path, 'validation'),
       '--classes_path', os.path.join(abs_data_path, 'classes.json'),
       '--annotation_path', os.path.join(dataset_path, 'annotations', 'validation.json'),
-      '--count', '200'])
+      '--count', '20000'])
 print('Validation dataset DONE! Stored in:', os.path.join(dataset_path, 'validation'))
