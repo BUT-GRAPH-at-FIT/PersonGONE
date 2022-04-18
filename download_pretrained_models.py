@@ -3,11 +3,17 @@ import os
 import argparse
 import zipfile
 import shutil
+from subprocess import call
 
 
 parser = argparse.ArgumentParser('Download pretrained models weights')
 parser.add_argument("--detector", action='store_true')
 args = parser.parse_args()
+
+################################################################################
+# Ensure correct paths
+call(['python', 'info.py'])
+################################################################################
 
 ################################################################################
 print('Downloading LaMa (inpainting model) weights!')
@@ -23,7 +29,7 @@ else:
     print('\nLama downloaded!')
 ################################################################################
 
-################################################################################
+# ################################################################################
 print('Downloading instance segmentation models weights!')
 instance_path = os.path.join('instance_segmentation', 'checkpoints')
 os.makedirs(instance_path,exist_ok=True)
@@ -41,7 +47,6 @@ seg_path = os.path.join(instance_path, 'htc_x101_64x4d_fpn_dconv_c3-c5_mstrain_4
 if os.path.exists(seg_path):
     print('HTC already downloaded - skipping.')
 else:
-    os.makedirs(seg_path,exist_ok=True)
     wget.download('https://nextcloud.fit.vutbr.cz/s/55rG5fDDzmnCFPo/download?path=%2F&files=htc_x101_64x4d_fpn_dconv_c3-c5_mstrain_400_1400_16x1_20e_coco_20200312-946fd751.pth')
     shutil.move('htc_x101_64x4d_fpn_dconv_c3-c5_mstrain_400_1400_16x1_20e_coco_20200312-946fd751.pth', seg_path)
     print('\nHTC downloaded!')
@@ -70,6 +75,7 @@ else:
 ################################################################################
 if args.detector:
     det_path = os.path.join('detector_and_tracker', 'checkpoints', 'yolox_l')
+    os.makedirs(det_path,exist_ok=True)
     if os.path.exists(os.path.join(det_path, 'best_ckpt.pth')):
         print('Detector already exists - skipping.')
     else:
