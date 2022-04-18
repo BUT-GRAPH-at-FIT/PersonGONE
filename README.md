@@ -86,7 +86,7 @@ All scripts are set as the result was reported to _AI City Challenge_ and no arg
 
 ## Train object detector for store checkout<a name="training-ref"></a>
 
-### Prepare _AI City Challenge_ dataset<a name="prepare-dataset-ref"</a>
+### Prepare _AI City Challenge_ dataset<a name="prepare-dataset-ref"></a>
 If you want to train detector prepare data at least from Track1, Track3, and Track4 (_AI City Challenge 2022_)  
 
 
