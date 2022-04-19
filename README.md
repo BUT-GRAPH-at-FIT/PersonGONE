@@ -1,6 +1,6 @@
 # PersonGONE: Image Inpainting for Automated Checkout Solution
-Official implementaion by authors. 
-Team 116 - Graph@FIT
+Official implementaion by authors.
+Team 117 - Graph@FIT
 
 Proposed solution for [_AI City Challenge 2022_](https://www.aicitychallenge.org/) Track4: _Multi-Class Product Counting & Recognition for Automated Retail Checkout_
 
@@ -21,7 +21,7 @@ Paper to [download](https://openaccess.thecvf.com) - **TBD**
 
 1. Install CUDA 11.3 and CuDNN
 
-2. Clone this repo: 
+2. Clone this repo:
 ```bash
 git clone https://github.com/BUT-GRAPH-at-FIT/PersonGONE.git
 ```
@@ -50,7 +50,7 @@ export TRACK_4_DATA_ROOT={/path/to/track_4/root_dir}
 
 For example: ``export TRACK_4_DATA_ROOT=/mnt/data/AIC22_Track4_TestA/Test_A``
 
-### Download pre-trained model 
+### Download pre-trained model
 ```bash
 cd $PERSON_GONE_DIR
 python download_pretrained_models.py --detector
@@ -75,7 +75,7 @@ Arguments ``--roi_seed`` can be set (two values) - it specifies seed position fo
 ### Detect products and create submission
 Run:
 ```bash
-python detect_and_create_submission.py --video_id $TRACK_4_DATA_ROOT/video_id.txt 
+python detect_and_create_submission.py --video_id $TRACK_4_DATA_ROOT/video_id.txt
 ```
 Parameters ``--tracker`` and ``--img_size`` can be set. The values are pre-set to ``tracker = BYTE, img_size = 640``
 
@@ -137,7 +137,7 @@ TBD
 }
 ```
 
-<!-- 
+<!--
 # TODOs:
 Nastavit spravne velikosti datasetu a epochy tranovani (ted jen na zkousku)  
 Zkontrolovat nazvy a sjednotit nazvy jako _AIC22_Track4_TestA, AIC22_Track_1_MTMC_Tracking_ s oficialne stazenymi soubory
