@@ -6,7 +6,7 @@ Proposed solution for [_AI City Challenge 2022_](https://www.aicitychallenge.org
 
 ![teaser](assets/teaser.jpg)
 
-Paper to [download](https://openaccess.thecvf.com) - **TBD**
+Paper to [download](https://openaccess.thecvf.com/content/CVPR2022W/AICity/html/Bartl_PersonGONE_Image_Inpainting_for_Automated_Checkout_Solution_CVPRW_2022_paper.html)
 
 ### Tested environment
 
@@ -126,14 +126,15 @@ Arguments ``--batch_size`` and ``--epochs`` can be set. Explicit values are ``ba
 * Trackers: [BYTE](https://github.com/ifzhang/ByteTrack), [SORT](https://github.com/abewley/sort)
 
 ## Citation
-TBD
+
 ```
-@inproceedings{bartl2022personGone,
-    title={{PersonGONE}: Image Inpainting for Automated Checkout Solution},
-    author={Bartl, Vojt\v{e}ch and \v{S}pa\v{n}hel, Jakub and Herout, Adam},
-    TBD,
-    TBD,
-    year={2022}
+@InProceedings{Bartl_2022_CVPR,
+    author    = {Bartl, Vojt\v{e}ch and \v{S}pa\v{n}hel, Jakub and Herout, Adam},
+    title     = {PersonGONE: Image Inpainting for Automated Checkout Solution},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2022},
+    pages     = {3115-3123}
 }
 ```
 
